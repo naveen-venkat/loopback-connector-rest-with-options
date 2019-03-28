@@ -1,7 +1,7 @@
 {
-  "name": "loopback-connector-rest",
-  "version": "3.4.1",
-  "description": "Loopback REST Connector",
+  "name": "loopback-connector-rest-with-options",
+  "version": "1.0.0",
+  "description": "Loopback REST Connector with loopback options passed in the headers",
   "engines": {
     "node": ">=6"
   },
@@ -43,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/strongloop/loopback-connector-rest.git"
+    "url": "https://github.com/naveen-venkat/loopback-connector-rest-with-options.git"
   },
   "license": "MIT"
 }
