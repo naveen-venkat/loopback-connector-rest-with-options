@@ -108,7 +108,7 @@ describe('REST connector', function() {
     });
 
     it('should find two users', function(done) {
-      User.find(function(err, body) {
+      User.find(null, {accessToken: undefined}, function(err, body) {
         // console.log(body);
         assert.equal(2, body.length);
         done(err, body);
@@ -117,7 +117,7 @@ describe('REST connector', function() {
 
     var user1;
     it('should find the user with id 1', function(done) {
-      User.findById(1, function(err, body) {
+      User.findById(1, {accessToken: undefined}, function(err, body) {
         // console.log(body);
         assert.equal(1, body.id);
         assert.equal('Ray', body.name);
@@ -127,7 +127,7 @@ describe('REST connector', function() {
     });
 
     it('should honor defaults for request', function(done) {
-      User.findById(1, function(err, body) {
+      User.findById(1, {accessToken: undefined}, function(err, body) {
         // console.log(body);
         assert.equal(1, body.id);
         assert.equal('my-header', body.myHeader);
@@ -136,7 +136,7 @@ describe('REST connector', function() {
     });
 
     it('should not find the user with id 100', function(done) {
-      User.findById(100, function(err, body) {
+      User.findById(100, {accessToken: undefined}, function(err, body) {
         // console.log(err, body);
         assert.ok(err);
         done(null, body);
@@ -145,14 +145,14 @@ describe('REST connector', function() {
 
     it('should update user 1', function(done) {
       user1.name = 'Raymond';
-      user1.save(function(err, body) {
+      user1.save({accessToken: undefined}, function(err, body) {
         // console.log(err, body);
         done(err, body);
       });
     });
 
     it('should delete user 1', function(done) {
-      User.findById(1, function(err, body) {
+      User.findById(1, {accessToken: undefined}, function(err, body) {
         // console.log(body);
         assert.equal(1, body.id);
         assert.equal('Raymond', body.name);
@@ -165,14 +165,14 @@ describe('REST connector', function() {
     });
 
     it('should create a new id named Mary', function(done) {
-      User.create({name: 'Mary'}, function(err, body) {
+      User.create({name: 'Mary'}, {accessToken: undefined}, function(err, body) {
         // console.log(body);
         done(err, body);
       });
     });
 
     it('should list all users', function(done) {
-      User.find(function(err, body) {
+      User.find({accessToken: undefined}, function(err, body) {
         // console.log(body);
         assert.equal(2, body.length);
         done(err, body);
@@ -192,7 +192,7 @@ describe('REST connector', function() {
         events.push('after execute');
         next();
       });
-      User.find(function(err, body) {
+      User.find({accessToken: undefined}, function(err, body) {
         assert.deepEqual(events, ['before execute', 'after execute']);
         // console.log(body);
         assert.equal(2, body.length);

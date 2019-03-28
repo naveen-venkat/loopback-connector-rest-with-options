@@ -99,7 +99,7 @@ describe('REST connector', function() {
     });
 
     it('should find two users', function(done) {
-      rest.query(function(err, body, response) {
+      rest.query({accessToken: undefined}, function(err, body, response) {
         assert.equal(200, response.statusCode);
         // console.log(body);
         assert.equal(2, body.length);
@@ -108,7 +108,7 @@ describe('REST connector', function() {
     });
 
     it('should find the user with id 1', function(done) {
-      rest.find(1, function(err, body, response) {
+      rest.find(1, {accessToken: undefined}, function(err, body, response) {
         assert.equal(200, response.statusCode);
         // console.log(err, response && response.statusCode);
         // console.log(body);
@@ -119,7 +119,7 @@ describe('REST connector', function() {
     });
 
     it('should not find the user with id 100', function(done) {
-      rest.find(100, function(err, body, response) {
+      rest.find(100, {accessToken: undefined}, function(err, body, response) {
         assert.equal(404, response.statusCode);
         // console.log(err, response && response.statusCode);
         // console.log(body);
@@ -128,7 +128,7 @@ describe('REST connector', function() {
     });
 
     it('should update user 1', function(done) {
-      rest.update(1, new User({id: 1, name: 'Raymond'}), function(err, body, response) {
+      rest.update(1, new User({id: 1, name: 'Raymond'}), {accessToken: undefined}, function(err, body, response) {
         assert.equal(200, response.statusCode);
         // console.log(err, response && response.statusCode);
         done(err, body);
@@ -136,7 +136,7 @@ describe('REST connector', function() {
     });
 
     it('should delete user 1', function(done) {
-      rest.delete(1, function(err, body, response) {
+      rest.delete(1, {accessToken: undefined}, function(err, body, response) {
         assert.equal(200, response.statusCode);
         // console.log(err, response && response.statusCode);
         done(err, body);
@@ -144,7 +144,7 @@ describe('REST connector', function() {
     });
 
     it('should create a new id named Mary', function(done) {
-      rest.create(new User({name: 'Mary'}), function(err, body, response) {
+      rest.create(new User({name: 'Mary'}), {accessToken: undefined}, function(err, body, response) {
         assert.equal(201, response.statusCode);
         // console.log(response && response.statusCode);
         // console.log(response && response.headers['location']);
@@ -154,7 +154,7 @@ describe('REST connector', function() {
     });
 
     it('should list all users', function(done) {
-      rest.query(function(err, body, response) {
+      rest.query({accessToken: undefined}, function(err, body, response) {
         assert.equal(200, response.statusCode);
         // console.log(response && response.statusCode);
         // console.log(body);
