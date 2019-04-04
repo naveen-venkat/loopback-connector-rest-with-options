@@ -1,4 +1,4 @@
-# loopback-connector-rest
+# loopback-connector-rest-with-options
 
 ## Overview
 
@@ -13,7 +13,7 @@ It supports two different styles of API invocations:
 In your application root directory, enter:
 
 ```shell
-$ npm install loopback-connector-rest --save
+$ npm install loopback-connector-rest-with-options --save
 ```
 
 This will install the module from npm and add it as a dependency to the application's [package.json](http://loopback.io/doc/en/lb3/package.json.html) file.
