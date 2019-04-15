@@ -1,6 +1,6 @@
 {
   "name": "loopback-connector-rest-with-options",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Loopback REST Connector with loopback options passed in the headers",
   "engines": {
     "node": ">=6"
